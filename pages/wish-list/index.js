@@ -1,7 +1,7 @@
-import Card from "../../components/ui/Card";
+import ProductCard from "../../components/ui/ProductCard";
 
 function WishList(props) {
-  return <Card></Card>;
+  return <ProductCard></ProductCard>;
 }
 
 export default WishList;
