@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, HomeIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { BellIcon } from "@heroicons/react/outline";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -21,7 +21,7 @@ function MainNavigation(props) {
   }
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 sticky-header">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
