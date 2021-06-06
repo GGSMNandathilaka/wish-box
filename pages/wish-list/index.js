@@ -1,5 +1,7 @@
+import Card from "../../components/ui/Card";
+
 function WishList(props) {
-  return <h1>WishList</h1>;
+  return <Card></Card>;
 }
 
 export default WishList;

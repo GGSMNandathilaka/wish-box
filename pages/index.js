@@ -1,5 +1,7 @@
+import Card from "../components/ui/Card";
+
 function HomePage(props) {
-  return <h1>Home Page</h1>;
+  return <Card></Card>;
 }
 
 export default HomePage;
