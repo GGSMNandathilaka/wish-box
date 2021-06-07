@@ -7,7 +7,7 @@ module.exports = (phase) => {
         mongodb_username: "develop",
         mongodb_password: "test",
         mongodb_clustername: "meetups",
-        mongodb_database: "meetups",
+        mongodb_database: "products",
       },
     };
   }
@@ -17,7 +17,7 @@ module.exports = (phase) => {
       mongodb_username: "develop",
       mongodb_password: "test",
       mongodb_clustername: "meetups",
-      mongodb_database: "meetups",
+      mongodb_database: "products",
     },
   };
 };
