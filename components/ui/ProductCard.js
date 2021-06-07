@@ -1,7 +1,7 @@
 import { HeartIcon } from "@heroicons/react/outline";
 
 function ProductCard(props) {
-  const { item } = props;
+  const { item, onClick } = props;
   return (
     <div className="">
       <div className="bg-white rounded-lg overflow-hidden shadow relative">
@@ -25,12 +25,15 @@ function ProductCard(props) {
             src={item.product.image}
             alt=""
           />
-          <div className="absolute bottom-3/4 left-3/4 rounded-lg p-3 bg-white">
+          <button
+            onClick={() => onClick(item)}
+            className="absolute bottom-3/4 left-3/4 rounded-lg p-3 bg-white"
+          >
             <HeartIcon
               className="h-6 w-6 text-red-600 hover:text-red-800"
               aria-hidden="true"
             ></HeartIcon>
-          </div>
+          </button>
         </div>
 
         <div className="relative px-4">
