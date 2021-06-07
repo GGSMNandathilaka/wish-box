@@ -30,7 +30,11 @@ function ProductCard(props) {
             className="absolute bottom-3/4 left-3/4 rounded-lg p-3 bg-white"
           >
             <HeartIcon
-              className="h-6 w-6 text-red-600 hover:text-red-800"
+              className={
+                item.product.liked
+                  ? "fill-current h-6 w-6 text-red-600 hover:text-red-800"
+                  : "h-6 w-6 text-red-600 hover:text-red-800"
+              }
               aria-hidden="true"
             ></HeartIcon>
           </button>
