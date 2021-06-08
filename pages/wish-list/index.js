@@ -8,8 +8,6 @@ function WishList(props) {
   const [state, setState] = useState([]);
   const products = props.wishedProducts;
 
-  const wishHandler = wishHandler(event, products);
-
   function wishHandler(event) {
     console.log("product-list", event);
     products.map((product) =>
