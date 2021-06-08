@@ -14,7 +14,6 @@ function classNames(...classes) {
 
 function MainNavigation(props) {
   function clickNavLink(event) {
-    console.log(event);
     navigation.map((nav) =>
       nav.name === event.name ? (nav.current = true) : (nav.current = false)
     );
