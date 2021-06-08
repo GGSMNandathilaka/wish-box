@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Getting Started
 
-## Getting Started
+Create a NextJs application using create-next-app.
 
-First, run the development server:
+**npx create-next-app**
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Then you have to enter a project name.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can run your NextJs application using the following command.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**npm run dev**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Then you can see a up and running web application running on **http://localhost:3000/**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+# File Based Routing
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Adding First Pages To The Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+NextJs promotes file based routing (https://nextjs.org/docs/routing/introduction). So we have to create separate .js files inside the file system.
 
-## Deploy on Vercel
+pages/index.js behaves as the base-route. If we need to create nested routes we can define them using separate folders inside the **pages **directory.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Here I have created a nested route for the **‘Liked’ **page as **/wish-list**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Define Reusable Components
+
+Every web application needs a set of reusable components to maintain the code quality, improve development efficiency & lower cost. The Following are the components which I have created for this application.
+
+
+
+*   components/layout/Layout.js
+    *   Mainly this web application can be divided into 2 main placeholders. They are header and content. So I have created a layout component to maintain this scaffolding.
+*   components/layout/MainNavigation.js
+    *   This component defines all navigation paths inside this single page application.
+*   components/products/Products.js
+    *   Mainly this application promotes a list of products. So this is a business component to iterate products.
+*   components/ui/ProductCard.js
+    *   This component is a reusable card component to depict product details. This card component iterates in the Products component
