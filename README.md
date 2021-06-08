@@ -1,34 +1,133 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Demo
 
-## Getting Started
+# [https://wish-box.vercel.app/](https://wish-box.vercel.app/)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create a NextJs application using create-next-app ([https://nextjs.org/docs/getting-starte](https://nextjs.org/docs/getting-starte)d).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**npx create-next-app**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Then you have to enter a project name.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can run your NextJs application using the following command.
 
-## Learn More
+**npm run dev**
 
-To learn more about Next.js, take a look at the following resources:
+Then you can see a up and running web application running on **http://localhost:3000/**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# File Based Routing
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Adding First Pages To The Project
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+NextJs promotes file based routing ([https://nextjs.org/docs/routing/introduction](https://nextjs.org/docs/routing/introduction)). So we have to create separate .js files inside the file system.
+
+pages/index.js behaves as the base-route. If we need to create nested routes we can define them using separate folders inside the **pages **directory.
+
+Here I have created a nested route for the **‘Liked’ **page as **/wish-list**
+
+
+# Programmatic Navigation
+
+Since this is a single page application we need to handle user navigation and page routing without reloading web pages. So, I have used the Link** **component to achieve this ([https://nextjs.org/docs/api-reference/next/link](https://nextjs.org/docs/api-reference/next/link)).
+
+
+# Define Reusable Components
+
+Every web application needs a set of reusable components to maintain the code quality, improve development efficiency & lower cost. The Following are the components which I have created for this application.
+
+
+
+*   components/layout/Layout.js
+    *   Mainly this web application can be divided into 2 main placeholders. They are header and content. So I have created a layout component to maintain this scaffolding.
+*   components/layout/MainNavigation.js
+    *   This component defines all navigation paths inside this single page application.
+*   components/products/Products.js
+    *   Mainly this application promotes a list of products. So this is a business component to iterate products.
+*   components/ui/ProductCard.js
+    *   This component is a reusable card component to depict product details. This card component iterates in the Products component
+
+
+# API Routes
+
+
+# Define API endpoints based on the file routes
+
+I have to create a separate route to retrieve data to accommodate the UI components. NextJs provides a great feature to achieve this ([https://nextjs.org/docs/api-routes/introduction](https://nextjs.org/docs/api-routes/introduction)). We can develop server side applications in the same NextJs application. In the **pages **directory we can find a directory called **api**. In there we can define files for API endpoints. In this application I want to retrieve a list of products. So I have created a file called **‘products.js’**. That file acts as an API endpoint (/api/products).
+
+
+# Connecting and Querying MongoDB
+
+
+# Create a document DB inside MongoDB cloud.
+
+I have signed up to MongoDB cloud and created a DB cluster. Inside that cluster I created a database and a data collection. Then I have imported a json document to create collection documents.
+([https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas))
+
+My data model is as follows.
+
+
+
+*   _id
+*   seller
+    *   name
+    *   image
+*   product
+    *   name
+    *   price
+    *   liked
+    *   likeCount
+    *   image
+    *   description
+    *   tags
+    *   Comments
+
+	
+
+
+# Connect to mongodb
+
+
+
+*   Install mongodb driver using npm.
+    *   **npm i mongodb**  
+*   You have to create a connection string as below
+    *   const connectionString = `mongodb+srv://${**process.env.mongodb_username**}:${**process.env.mongodb_password**}@${**process.env.mongodb_clustername**}.movlm.mongodb.net/${**process.env.mongodb_database**}?retryWrites=true&w=majority`;
+*   Create a **MongoClient ** as below
+    *   **const client = await MongoClient.connect(connectionString);**
+*   Connect to the DB
+    *   **const db = client.db();**
+*   After that you can access collections and query them.
+    *   **const productsCollection = db.collection("products");**
+
+
+# Data Fetching
+
+I have used the **getServerSideProps()** function to fetch a product list. Once connected to the DB we can access the collection. After retrieving the collection I have assigned data to the **props **of** **the functional component. That props will pass into js components.
+
+[https://nextjs.org/docs/basic-features/data-fetching](https://nextjs.org/docs/basic-features/data-fetching)
+
+
+# Sending HTTP Requests to API Routes
+
+I have used a PUT request to update the **liked **status of a product. In there I have used a API route (**/api/products**)
+
+
+# Add “”head” Metadata to Pages
+
+I have added head metadata to the landing  page and the liked page to support SEO.
+
+
+# CSS framework
+
+I have used [https://tailwindcss.com/](https://tailwindcss.com/) for the styling.
+
+
+# Deployment
+
+[https://nextjs.org/docs/deployment](https://nextjs.org/docs/deployment)
+
+I have used Vercel for the deployment. In my github repository I have created two separate branches. Main deployment push from the master branch.
