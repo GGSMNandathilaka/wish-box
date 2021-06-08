@@ -46,7 +46,7 @@ function ProductCard(props) {
             <span className="block font-semibold text-xl">
               {item.product.name}
             </span>
-            <span className="block bg-white rounded-full text-orange-500 text-s font-bold px-3 py-2 leading-none flex items-center">
+            <span className="block bg-white rounded-full text-orange-300 text-s font-bold px-3 py-2 leading-none flex items-center">
               {item.product.price}
             </span>
           </div>
