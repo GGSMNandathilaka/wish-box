@@ -1,5 +1,6 @@
 import { HeartIcon } from "@heroicons/react/outline";
 
+// Individual product card
 function ProductCard(props) {
   const { item, onClick } = props;
   return (
@@ -27,7 +28,7 @@ function ProductCard(props) {
           />
           <button
             onClick={() => onClick(item)}
-            className="absolute bottom-3/4 left-3/4 rounded-lg p-3 bg-white"
+            className="absolute bottom-3/4 left-3/4 rounded-lg p-3 bg-white focus:outline-none"
           >
             <HeartIcon
               className={
@@ -42,37 +43,39 @@ function ProductCard(props) {
 
         <div className="relative px-4">
           <div className="flex justify-between">
-            <span className="block font-semibold text-xl">
+            <span className="block font-normal text-l">
               {item.product.name}
             </span>
-            <span className="block bg-white rounded-full text-orange-500 text-s font-bold px-3 py-2 leading-none flex items-center">
+            <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
               {item.product.price}
             </span>
           </div>
-          <span className="block flex text-blue-500 hover:text-blue-600 font-semibold opacity-75 -mb-1">
+          <span className="block flex text-xs text-blue-500 hover:text-blue-600 font-semibold opacity-75 -mb-1">
             <HeartIcon
               className="fill-current h-5 w-5"
               aria-hidden="true"
             ></HeartIcon>
-            <span className="pl-2">{item.product.likeCount} likes</span>
+            <span className="pl-2 text-center">
+              {item.product.likeCount} likes
+            </span>
           </span>
         </div>
-        <div className="p-4 h-auto md:h-40 lg:h-48">
-          <div className="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+        <div className="p-4 h-auto md:h-35 lg:h-38">
+          <div className="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm truncate">
             {item.product.description}
           </div>
-          <div className="relative mt-2 lg:absolute bottom-0 mb-4 lg:block">
+          <div className="relative mt-2 mb-4 lg:block">
             {item.product.tags.map((tag, tagId) => (
               <a
                 key={tagId}
-                className="inline bg-gray-300 py-1 px-2 rounded-full text-xs lowercase text-gray-700"
+                className="inline bg-gray-300 py-1 px-2 pb-1 rounded-full text-xs lowercase text-gray-700"
                 href="#"
               >
                 {tag}
               </a>
             ))}
           </div>
-          <div className="block opacity-50 text-sm -mb-1">
+          <div className="block bottom-0 opacity-50 text-sm -mb-1">
             View {item.product.comments.length} comments
           </div>
         </div>

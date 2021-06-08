@@ -3,6 +3,7 @@ import Head from "next/head";
 import { MongoClient } from "mongodb";
 import Products from "../components/products/Products";
 
+// page-url - {host}/
 function HomePage(props) {
   return (
     <Fragment>

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import ProductCard from "../ui/ProductCard";
 
+// Product list component
 function Products(props) {
   const [state, setState] = useState([]);
   const { products } = props;
 
+  // triggers when a product mark as a wish item
   function wishHandler(event) {
     products.map((product) =>
       product.id === event.id
@@ -23,6 +25,7 @@ function Products(props) {
     updateProductHandler(payload);
   }
 
+  // send PUT request to update a relevant product
   async function updateProductHandler(payload) {
     const response = await fetch("/api/products", {
       method: "PUT",
@@ -40,15 +43,19 @@ function Products(props) {
   return (
     <div className="py-4">
       <div className="px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              item={product}
-              onClick={wishHandler}
-            ></ProductCard>
-          ))}
-        </div>
+        {products && products.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                item={product}
+                onClick={wishHandler}
+              ></ProductCard>
+            ))}
+          </div>
+        ) : (
+          <h1 className="block">Nothing here... yet.</h1>
+        )}
       </div>
     </div>
   );
