@@ -5,7 +5,6 @@ import { MongoClient, ObjectId } from "mongodb";
 async function handler(req, res) {
   if (req.method === "PUT") {
     const payload = req.body;
-    console.log(payload);
 
     const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.movlm.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
 
@@ -18,8 +17,6 @@ async function handler(req, res) {
       { $set: payload.data },
       { upsert: true }
     );
-
-    console.log(result);
 
     client.close();
 

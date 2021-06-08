@@ -1,5 +1,6 @@
 import { HeartIcon } from "@heroicons/react/outline";
 
+// Individual product card
 function ProductCard(props) {
   const { item, onClick } = props;
   return (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/outline";
 
+// navigation links within the application
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Liked", href: "/wish-list", current: false },

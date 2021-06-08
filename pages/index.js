@@ -1,53 +1,17 @@
 import { Fragment } from "react";
 import Head from "next/head";
 import { MongoClient } from "mongodb";
-import { useState, setState } from "react";
 import Products from "../components/products/Products";
 
+// page-url - {host}/
 function HomePage(props) {
-  const [state, setState] = useState([]);
-  const { products } = props;
-
-  function wishHandler(event) {
-    console.log("product-list", event);
-    products.map((product) =>
-      product.id === event.id
-        ? (product.product.liked = !product.product.liked)
-        : null
-    );
-    setState({ products });
-
-    const wishedProduct = products.filter(
-      (product) => product.id === event.id
-    )[0];
-    const clonedWishedProduct = { ...wishedProduct };
-    delete clonedWishedProduct["id"];
-
-    const payload = { id: event.id, data: clonedWishedProduct };
-    updateProductHandler(payload);
-  }
-
-  async function updateProductHandler(payload) {
-    const response = await fetch("/api/products", {
-      method: "PUT",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await response.json();
-
-    console.log(data);
-  }
-
   return (
     <Fragment>
       <Head>
         <title>Product List</title>
         <meta name="description" content="Product List"></meta>
       </Head>
-      <Products products={props.products} wishHandler={wishHandler}></Products>
+      <Products products={props.products}></Products>
     </Fragment>
   );
 }

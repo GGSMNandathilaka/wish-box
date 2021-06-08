@@ -1,5 +1,6 @@
 import MainNavigation from "./MainNavigation";
 
+// Define layout of the application
 function Layout(props) {
   return (
     <div>
